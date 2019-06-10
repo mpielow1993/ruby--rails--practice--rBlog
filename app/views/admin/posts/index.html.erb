@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-content">
+        <h2 class="page-header">Manage Posts <%= link_to "Create New", admin_posts_new_path, class: 'btn btn-primary' %></h2>
+        <% if @posts.exists? %>
+            <table class="table table-striped">
+                <tr>
+                    <th>Post Title</th>
+                    <th>Create Date</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <% @posts.each do |post| %>
+                    <tr>
+                        <td>
+                            <%= post.title %>
+                        </td>
+                        <td>
+                            <%= post.created_at.to_time.strftime('%B %e at %l %M %p') %>
+                        </td>
+                        <td>
+                            <%= link_to "Edit", edit_admin_post_path(post), class: 'btn btn-primary' %> 
+                            <%= link_to "Delete", admin_post_path(post), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tr>
+            </table>
+        <%= will_paginate @posts %>
+        <% else %>
+            <p>There are no posts</p>
+        <% end %>
+    </div>
+</div>

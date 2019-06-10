@@ -1,0 +1,62 @@
+body{
+    font-family: arial;
+    background: $background-color;
+    line-height: 1.6em;
+}
+
+footer{
+    background: $primary-color;
+    color: #fff;
+    display: block;
+    margin: 10px 0;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.navbar{
+    overflow: auto;
+    min-height: 100px;
+    background: $primary-color;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar h1{
+    margin-top: 10px 0 0 0;
+    padding: 0;
+}
+
+.card{
+    border: 1px #ccc solid;
+    background: #fff;
+    margin-top: 30px;
+}
+
+.card img{
+    width: 100%;
+}
+
+.card-content{
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card h3{
+    margin: 0;
+    padding:0;
+}
+
+.card small{
+    background: $primary-color;
+    color: #fff;
+    display: block;
+    margin: 10px 0;
+    padding: 5px 10px;
+}
+
+.list-group{
+    margin-top: 30px;
+}
+
