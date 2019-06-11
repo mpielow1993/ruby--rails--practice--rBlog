@@ -19,13 +19,18 @@
     </div>
     <div class="form-group">
         <%= f.label :author %><br />
-        <%= f.select :user_id, User.all.collect{ |x| [x.first_name + ' ' + x.last_name, x.id] },
+        <%= f.select :user_id, User.all.collect{ |x| [x.name, x.id] },
             { :include_blank => 'Select One' }, class: 'form-control' %><br /><br />
     </div>
     <div class="form-group">
         <%= f.label :image %><br />
         <%= f.file_field :image%><br /><br />
     </div>
+    
+    <% if @post.image.exists? %>
+        <%= image_tag @post.image.url, width: '100%' %>
+    <% end %>
+    
     <div class="form-group">
         <%= f.label :tags %><br />
         <%= f.text_field :tags, class: 'form-control' %><br />

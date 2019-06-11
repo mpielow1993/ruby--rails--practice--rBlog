@@ -1,9 +1,7 @@
-<div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action active">
-        Cras justo odio
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">News</a>
-    <a href="#" class="list-group-item list-group-item-action">Tutorials</a>
-    <a href="#" class="list-group-item list-group-item-action">Releases</a>
-    <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Events</a>
-</div>
+<% if params[:controller] == 'posts' || params[:controller] == 'categories' %>
+    <div class="list-group">
+        <% @categories.each do |category| %>
+            <%= link_to category.name, category_path(category), class: 'list-group-item' %>
+        <% end %>
+    </div>
+<% end %>

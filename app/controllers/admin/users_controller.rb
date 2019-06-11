@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::ApplicationController
+  before_action :verify_logged_in
   def new
     @page_title = 'Add User'
     @user = User.new
@@ -38,9 +39,9 @@ class Admin::UsersController < Admin::ApplicationController
 
   def index
     if params[:search]
-      @users = User.search(params[:search]).all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+      @users = User.search(params[:search]).order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
     else
-      @users = Post.all.order('created_at DESC')
+      @users = User.all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
     end
   end
   
@@ -48,4 +49,5 @@ class Admin::UsersController < Admin::ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
+    
 end
